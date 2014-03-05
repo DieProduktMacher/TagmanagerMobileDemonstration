@@ -89,4 +89,26 @@ public class GTMConnector {
                 }
         );
     }
+
+    public void sendButtonClicked(String buttonTag) {
+        DataLayer dataLayer = mTagManager.getDataLayer();
+
+        // This call assumes the container has already been opened, otherwise events
+        // pushed to the DataLayer will not fire tags in that container.
+        dataLayer.push(DataLayer.mapOf("event", "buttonClicked",        // Event, Name of Open Screen Event.
+                "buttonName", buttonTag));   // Additional data layer variables used by the event tag.
+    }
+
+    public void refresh() {
+        if (mContainer == null) {
+            prepareContainer(new GTMContainerCallback() {
+                @Override
+                public void callback(Container container) {
+                    mContainer.refresh();
+                }
+            });
+        } else {
+            mContainer.refresh();
+        }
+    }
 }

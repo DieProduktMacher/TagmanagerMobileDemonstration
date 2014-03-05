@@ -2,6 +2,7 @@ package com.produktmacher.tagmanagerdemo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,11 @@ public class SearchActivity extends GTMBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        if (savedInstanceState == null) {
+            GTMConnector.getInstance(this).refresh();
+        }
+
         gtmSetTitle("Search");
 
         mButtonSearch   = (Button) findViewById(R.id.search_button_search);
@@ -74,5 +80,8 @@ public class SearchActivity extends GTMBaseActivity {
 
     }
 
-
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
 }
