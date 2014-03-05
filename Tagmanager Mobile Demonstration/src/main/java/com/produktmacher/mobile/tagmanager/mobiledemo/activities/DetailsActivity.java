@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
@@ -14,6 +18,7 @@ public class DetailsActivity extends ActionBarActivity {
     private MyItem mItem;
     private TextView mTextViewName;
     private TextView mTextViewDetails;
+    private ImageButton mImageButtonLike;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,7 @@ public class DetailsActivity extends ActionBarActivity {
 
         mTextViewName = (TextView) findViewById(R.id.details_textview_name);
         mTextViewDetails = (TextView) findViewById(R.id.details_textview_details);
+        mImageButtonLike = (ImageButton) findViewById(R.id.details_button_like);
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
@@ -30,28 +36,18 @@ public class DetailsActivity extends ActionBarActivity {
             mTextViewDetails.setText(mItem.getDetails());
             DetailsActivity.this.setTitle(mItem.getName());
         }
+        setupListeners();
 
     }
 
+    private void setupListeners() {
+        mImageButtonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.details, menu);
-        return true;
+            }
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 }

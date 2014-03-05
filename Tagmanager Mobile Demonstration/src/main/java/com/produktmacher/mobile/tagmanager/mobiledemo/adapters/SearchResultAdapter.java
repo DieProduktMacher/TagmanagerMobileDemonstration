@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class SearchResultAdapter extends BaseAdapter {
     private Context mContext;
     private String mSearchTerm;
+    private String[] loremArray = {"Lorem", "ipsum", "dolor", "sit", "amet"};
     private String lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
             "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
             "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
@@ -29,9 +30,10 @@ public class SearchResultAdapter extends BaseAdapter {
     public SearchResultAdapter(Context context, String searchTerm) {
         mContext = context;
         mSearchTerm = searchTerm;
+        myItems = new ArrayList<MyItem>();
 
-        for (int i = 0; i < 20; i++) {
-            myItems.add(new MyItem("Foo" + i, lorem));
+        for (int i = 0; i < 5; i++) {
+            myItems.add(new MyItem(loremArray[i], lorem));
         }
     }
 

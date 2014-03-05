@@ -20,7 +20,6 @@
             android:id="@+id/searchresult_textview_term"
             android:layout_width="match_parent"
             android:layout_marginLeft="20dp"
-            android:text="something"
             android:textStyle="bold"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -28,7 +27,6 @@
 
     <ListView
         android:id="@+id/searchresult_listview"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 

@@ -1,6 +1,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -9,6 +10,7 @@
         android:background="#DDDDDD"
         android:padding="10dp"
         android:layout_marginTop="25dp"
+        android:textAppearance="@android:style/TextAppearance.Large"
         android:textStyle="bold"
         android:layout_height="wrap_content" />
 
@@ -17,5 +19,14 @@
         android:layout_width="match_parent"
         android:layout_margin="10dp"
         android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/details_button_like"
+        android:tag="like"
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@drawable/like_button_background" />
 
 </LinearLayout>
