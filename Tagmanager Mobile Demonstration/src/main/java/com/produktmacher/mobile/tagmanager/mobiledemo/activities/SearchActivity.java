@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
 
-public class SearchActivity extends ActionBarActivity {
+public class SearchActivity extends GTMBaseActivity {
 
     public static final String EXTRA_SEARCH_TERM = "search_term";
     private Button mButtonSearch;
@@ -21,6 +21,7 @@ public class SearchActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        gtmSetTitle("Search");
 
         mButtonSearch = (Button) findViewById(R.id.search_button_search);
         mTextViewSearch = (TextView) findViewById(R.id.search_edittext_searchfield);

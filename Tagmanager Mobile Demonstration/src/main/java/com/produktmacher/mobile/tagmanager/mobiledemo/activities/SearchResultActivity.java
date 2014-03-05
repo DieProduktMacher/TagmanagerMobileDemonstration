@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
 import com.produktmacher.mobile.tagmanager.mobiledemo.adapters.SearchResultAdapter;
 
-public class SearchResultActivity extends ActionBarActivity {
+public class SearchResultActivity extends GTMBaseActivity {
 
     public static final String EXTRA_ITEM = "result_item";
 
@@ -21,6 +21,7 @@ public class SearchResultActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+        gtmSetTitle("Search Results");
 
         TextView mTextViewSearchTerm = (TextView) findViewById(R.id.searchresult_textview_term);
         ListView mListView = (ListView) findViewById(R.id.searchresult_listview);

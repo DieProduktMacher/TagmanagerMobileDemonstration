@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
 import com.produktmacher.mobile.tagmanager.mobiledemo.models.MyItem;
 
-public class DetailsActivity extends ActionBarActivity {
+public class DetailsActivity extends GTMBaseActivity {
 
     private MyItem mItem;
     private TextView mTextViewName;
@@ -25,6 +25,7 @@ public class DetailsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+
         mTextViewName = (TextView) findViewById(R.id.details_textview_name);
         mTextViewDetails = (TextView) findViewById(R.id.details_textview_details);
         mImageButtonLike = (ImageButton) findViewById(R.id.details_button_like);
@@ -32,6 +33,7 @@ public class DetailsActivity extends ActionBarActivity {
 
         if (extras != null) {
             mItem = (MyItem) extras.getSerializable(SearchResultActivity.EXTRA_ITEM);
+            gtmSetTitle(mItem.getName());
             mTextViewName.setText(mItem.getName());
             mTextViewDetails.setText(mItem.getDetails());
             DetailsActivity.this.setTitle(mItem.getName());
