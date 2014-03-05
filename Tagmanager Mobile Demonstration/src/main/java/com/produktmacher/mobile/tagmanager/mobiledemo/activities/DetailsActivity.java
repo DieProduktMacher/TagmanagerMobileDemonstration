@@ -47,6 +47,7 @@ public class DetailsActivity extends GTMBaseActivity {
         mImageButtonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GTMConnector.getInstance(DetailsActivity.this).sendLikedClicked(mItem);
             }
         });
     }
