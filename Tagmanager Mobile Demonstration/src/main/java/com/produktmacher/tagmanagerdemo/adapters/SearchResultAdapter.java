@@ -13,7 +13,7 @@ import com.produktmacher.tagmanagerdemo.models.MyItem;
 import java.util.ArrayList;
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * This adapter displays the dummy search results
  */
 public class SearchResultAdapter extends BaseAdapter {
     private Context mContext;

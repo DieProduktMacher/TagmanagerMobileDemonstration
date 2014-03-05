@@ -1,7 +1,7 @@
 package com.produktmacher.tagmanagerdemo.gtm.interfaces;
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * This interface offers a method that should be called when a value of a container has successfully been fetched
  */
 public interface GTMValueCallback {
 

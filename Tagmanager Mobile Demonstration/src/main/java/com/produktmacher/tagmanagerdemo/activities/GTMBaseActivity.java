@@ -7,7 +7,8 @@ import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * This class should be inherited by all tracked Activities
+ * GTMBaseActivity helps sending the screenOpened event
  */
 public class GTMBaseActivity extends ActionBarActivity {
 
@@ -16,7 +17,11 @@ public class GTMBaseActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
     }
 
-    protected void gtmSetTitle(String title) {
+    /**
+     * Set the activity title and push a screenOpened event to the TagManager Container
+     * @param title The screens' title
+     */
+    protected void setTitleAndPushOpened(String title) {
         setTitle(title);
         GTMConnector.getInstance(this).sendScreenOpened(title);
     }

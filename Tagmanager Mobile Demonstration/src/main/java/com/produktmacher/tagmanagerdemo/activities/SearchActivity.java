@@ -27,23 +27,24 @@ public class SearchActivity extends GTMBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        // If the app gets started savedInstanceState is null, that's when we wan't to refresh the Container (otherwise it will update automatically after 12 hours)
         if (savedInstanceState == null) {
             GTMConnector.getInstance(this).refresh();
         }
 
-        gtmSetTitle("Search");
+        setTitleAndPushOpened("Search");
 
-        mButtonSearch   = (Button) findViewById(R.id.search_button_search);
-        mEditTextSearch = (EditText) findViewById(R.id.search_edittext_searchfield);
+        mButtonSearch           = (Button) findViewById(R.id.search_button_search);
+        mEditTextSearch         = (EditText) findViewById(R.id.search_edittext_searchfield);
         mTextViewSearchQuestion = (TextView) findViewById(R.id.search_textview_searchquestion);
 
 
-        // We also need a callback here, since fetching the value might happen asynchronously
+        // We need a callback to fetch a value from the Container, since fetching it from GTM might happen in another thread
         GTMConnector.getInstance(this).getValue(GTM_SEARCH_QUESTION, new GTMValueCallback() {
             @Override
             public void callback(final String value) {
 
-                //We are in a different thread, where we can't change the ui
+                // Since this callback might be run in a different thread, we have to assure, that UI actions are run in the UI thread
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -54,11 +55,11 @@ public class SearchActivity extends GTMBaseActivity {
             }
         });
 
-        // We also need a callback here, since fetching the value might happen asynchronously
+        // We need a callback to fetch a value from the Container, since fetching it from GTM might happen in another thread
         GTMConnector.getInstance(this).getValue(GTM_SEARCH_BUTTON, new GTMValueCallback() {
             @Override
             public void callback(final String value) {
-                //We are in a different thread, where we can't change the ui
+                // Since this callback might be run in a different thread, we have to assure, that UI actions are run in the UI thread
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -69,6 +70,7 @@ public class SearchActivity extends GTMBaseActivity {
         });
 
 
+        // Open SearchResultActivity with the search term as an extra
         mButtonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

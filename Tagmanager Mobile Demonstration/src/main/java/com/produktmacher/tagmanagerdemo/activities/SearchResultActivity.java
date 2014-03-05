@@ -21,14 +21,15 @@ public class SearchResultActivity extends GTMBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-        gtmSetTitle("Search Results");
 
-        TextView mTextViewSearchTerm  = (TextView) findViewById(R.id.searchresult_textview_term);
+        setTitleAndPushOpened("Search Results");
+
         final TextView mTextViewYourResults = (TextView) findViewById(R.id.searchresult_textview_yourresults);
+        TextView mTextViewSearchTerm = (TextView) findViewById(R.id.searchresult_textview_term);
         ListView mListView = (ListView) findViewById(R.id.searchresult_listview);
 
+        // Get the search term from extras and set it as the text of mTextViewSearchTerm
         Bundle extras = getIntent().getExtras();
-
         String searchTerm = "";
         if (extras != null) {
             searchTerm = extras.getString(SearchActivity.EXTRA_SEARCH_TERM);
@@ -37,10 +38,11 @@ public class SearchResultActivity extends GTMBaseActivity {
             }
         }
 
+        // We need a callback to fetch a value from the Container, since fetching it from GTM might happen in another thread
         GTMConnector.getInstance(this).getValue(GTM_YOUR_RESULTS, new GTMValueCallback() {
             @Override
             public void callback(final String value) {
-                //We are in a different thread, where we can't change the ui
+                // Since this callback might be run in a different thread, we have to assure, that UI actions are run in the UI thread
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -51,9 +53,11 @@ public class SearchResultActivity extends GTMBaseActivity {
         });
 
 
+        //Fill the listView
         final SearchResultAdapter adapter = new SearchResultAdapter(this, searchTerm);
         mListView.setAdapter(adapter);
-        
+
+        // On Item Click in the ListView start a new DetailsActivity with the item as an extra
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -11,11 +11,11 @@ import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 import com.produktmacher.tagmanagerdemo.models.MyItem;
 
 /**
- * Created by stefanlanger on 05.03.14.
  * This is a Singleton Class, with which you can send events and receive values from Google Tag Manager
  */
 public class GTMConnector {
 
+    // Your Container ID
     private static final String CONTAINER_ID = "GTM-PLWRDX";
     volatile private Container mContainer;
     private TagManager mTagManager;
@@ -23,6 +23,7 @@ public class GTMConnector {
     private static GTMConnector instance = new GTMConnector();
     private Context mContext;
 
+    //Singleton
     private GTMConnector() {
     }
 
@@ -33,30 +34,51 @@ public class GTMConnector {
     }
 
 
+    /**
+     * Sends an openScreen Event
+     * @param screenName
+     */
     public void sendScreenOpened(String screenName) {
         DataLayer dataLayer = mTagManager.getDataLayer();
-
-        // This call assumes the container has already been opened, otherwise events
-        // pushed to the DataLayer will not fire tags in that container.
-        dataLayer.push(DataLayer.mapOf("event", "openScreen",        // Event, Name of Open Screen Event.
-                "screenName", screenName));  // Name of screen name field, Screen name value.
+        dataLayer.push(DataLayer.mapOf("event", "openScreen",
+                "screenName", screenName));
     }
 
+    /**
+     * Sends a liked Event (including the item's name)
+     * @param mItem
+     */
     public void sendLikedClicked(MyItem mItem) {
         String itemName = mItem.getName();
 
         DataLayer dataLayer = mTagManager.getDataLayer();
+        dataLayer.push(DataLayer.mapOf("event", "liked",
+                "likedName", itemName));
+    }
+
+
+    /**
+     * Sends a button Clicked Event
+     * @param buttonTag Should be set in xml
+     */
+    public void sendButtonClicked(String buttonTag) {
+        DataLayer dataLayer = mTagManager.getDataLayer();
 
         // This call assumes the container has already been opened, otherwise events
         // pushed to the DataLayer will not fire tags in that container.
-        dataLayer.push(DataLayer.mapOf("event", "liked",        // Event, Name of Open Screen Event.
-                "likedName", itemName));   // Additional data layer variables used by the event tag.
+        dataLayer.push(DataLayer.mapOf("event", "buttonClicked",        // Event, Name of Open Screen Event.
+                "buttonName", buttonTag));   // Additional data layer variables used by the event tag.
     }
 
+    /**
+     * Get a value from the Container
+     * @param key
+     * @param callback is needed, because if there is no saved Container, it first has to be fetched asynchronously
+     */
     public void getValue(final String key, final GTMValueCallback callback) {
         // If Container is available already, call the GTMValueCallback with the String value
         // If not, prepare the Container. As soon as it's ready (GTMContainerCallback gets Called): call the GTMValueCallback with the String value
-        // We need callbacks since the Container actions are asynchronous
+        // We need callbacks since fetching the Container runs asynchronously
         if (mContainer != null) {
             String value = mContainer.getString(key);
             callback.callback(value);
@@ -72,6 +94,10 @@ public class GTMConnector {
         }
     }
 
+    /**
+     * Prepare the GTM Container
+     * @param callback get's called with the container as a param as soon as it's ready
+     */
     private void prepareContainer(final GTMContainerCallback callback) {
         // happens asynchronously
         ContainerOpener.openContainer(
@@ -84,21 +110,18 @@ public class GTMConnector {
                     public void containerAvailable(Container container) {
                         // Handle assignment in callback to avoid blocking main thread.
                         mContainer = container;
-                        callback.callback(container);
+                        if (callback != null) {
+                            callback.callback(container);
+                        }
                     }
                 }
         );
     }
 
-    public void sendButtonClicked(String buttonTag) {
-        DataLayer dataLayer = mTagManager.getDataLayer();
 
-        // This call assumes the container has already been opened, otherwise events
-        // pushed to the DataLayer will not fire tags in that container.
-        dataLayer.push(DataLayer.mapOf("event", "buttonClicked",        // Event, Name of Open Screen Event.
-                "buttonName", buttonTag));   // Additional data layer variables used by the event tag.
-    }
-
+    /**
+     * Force fetching the container from network
+     */
     public void refresh() {
         if (mContainer == null) {
             prepareContainer(new GTMContainerCallback() {

@@ -9,7 +9,7 @@ import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * This custom Button sends its' tag on every click to the GTM
  */
 public class GTMButton extends Button {
 
@@ -27,6 +27,7 @@ public class GTMButton extends Button {
 
     @Override
     public void setOnClickListener(final OnClickListener l) {
+        // Take the onClick event, trigger it and then send the event
         OnClickListener newListener = new OnClickListener() {
             @Override
             public void onClick(View v) {

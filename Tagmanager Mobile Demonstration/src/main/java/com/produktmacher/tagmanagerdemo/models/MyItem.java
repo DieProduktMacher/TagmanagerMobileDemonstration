@@ -3,7 +3,7 @@ package com.produktmacher.tagmanagerdemo.models;
 import java.io.Serializable;
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * Dummy Item to work with
  */
 public class MyItem implements Serializable{
     private String mName;

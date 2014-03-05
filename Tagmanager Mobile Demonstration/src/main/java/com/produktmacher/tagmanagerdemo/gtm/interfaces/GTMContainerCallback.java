@@ -3,7 +3,7 @@ package com.produktmacher.tagmanagerdemo.gtm.interfaces;
 import com.google.tagmanager.Container;
 
 /**
- * Created by stefanlanger on 05.03.14.
+ * This interface offers a method that should be called when the container has successfully been created
  */
 public interface GTMContainerCallback {
 

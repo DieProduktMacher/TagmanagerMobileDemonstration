@@ -9,6 +9,9 @@ import com.produktmacher.tagmanagerdemo.R;
 import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 import com.produktmacher.tagmanagerdemo.models.MyItem;
 
+/**
+ * This Activity shows the details to an item
+ */
 public class DetailsActivity extends GTMBaseActivity {
 
     private MyItem mItem;
@@ -22,26 +25,31 @@ public class DetailsActivity extends GTMBaseActivity {
         setContentView(R.layout.activity_details);
 
 
-        mTextViewName = (TextView) findViewById(R.id.details_textview_name);
-        mTextViewDetails = (TextView) findViewById(R.id.details_textview_details);
-        mImageButtonLike = (ImageButton) findViewById(R.id.details_button_like);
-        Bundle extras = getIntent().getExtras();
+        mTextViewName       = (TextView) findViewById(R.id.details_textview_name);
+        mTextViewDetails    = (TextView) findViewById(R.id.details_textview_details);
+        mImageButtonLike    = (ImageButton) findViewById(R.id.details_button_like);
 
+        // Get item from Extras
+        Bundle extras = getIntent().getExtras();
         if (extras != null) {
             mItem = (MyItem) extras.getSerializable(SearchResultActivity.EXTRA_ITEM);
-            gtmSetTitle(mItem.getName());
+
+            //Call the setTitleAndPushOpened function
+            setTitleAndPushOpened(mItem.getName());
+
+            // Set details
             mTextViewName.setText(mItem.getName());
             mTextViewDetails.setText(mItem.getDetails());
-            DetailsActivity.this.setTitle(mItem.getName());
         }
         setupListeners();
-
     }
 
     private void setupListeners() {
+        // On Click of the like button
         mImageButtonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Send a liked event
                 GTMConnector.getInstance(DetailsActivity.this).sendLikedClicked(mItem);
             }
         });
