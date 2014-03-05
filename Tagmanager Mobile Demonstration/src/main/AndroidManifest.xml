@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.produktmacher.mobile.tagmanager.mobiledemo.SearchResultActivity"
+            android:label="@string/title_activity_search_result" >
+        </activity>
+        <activity
+            android:name="com.produktmacher.mobile.tagmanager.mobiledemo.activities.DetailsActivity"
+            android:label="@string/title_activity_details" >
+        </activity>
     </application>
 
 </manifest>
