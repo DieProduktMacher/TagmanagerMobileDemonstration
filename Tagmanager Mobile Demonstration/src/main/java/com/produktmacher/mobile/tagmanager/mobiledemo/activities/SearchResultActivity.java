@@ -12,10 +12,13 @@ import android.widget.TextView;
 
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
 import com.produktmacher.mobile.tagmanager.mobiledemo.adapters.SearchResultAdapter;
+import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.GTMConnector;
+import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMValueCallback;
 
 public class SearchResultActivity extends GTMBaseActivity {
 
     public static final String EXTRA_ITEM = "result_item";
+    private final String GTM_YOUR_RESULTS = "activity_searchresult_here_are_your_results";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,8 @@ public class SearchResultActivity extends GTMBaseActivity {
         setContentView(R.layout.activity_search_result);
         gtmSetTitle("Search Results");
 
-        TextView mTextViewSearchTerm = (TextView) findViewById(R.id.searchresult_textview_term);
+        TextView mTextViewSearchTerm  = (TextView) findViewById(R.id.searchresult_textview_term);
+        final TextView mTextViewYourResults = (TextView) findViewById(R.id.searchresult_textview_yourresults);
         ListView mListView = (ListView) findViewById(R.id.searchresult_listview);
 
         Bundle extras = getIntent().getExtras();
@@ -35,6 +39,13 @@ public class SearchResultActivity extends GTMBaseActivity {
                 mTextViewSearchTerm.setText(searchTerm);
             }
         }
+
+        GTMConnector.getInstance(this).getValue(GTM_YOUR_RESULTS, new GTMValueCallback() {
+            @Override
+            public void callback(String value) {
+                mTextViewYourResults.setText(value);
+            }
+        });
 
 
         final SearchResultAdapter adapter = new SearchResultAdapter(this, searchTerm);

@@ -1,5 +1,5 @@
 {
     "activity_search_searchquestion": "What are you searching for?",
-    "activity_search_title": "Search",
-    "activity_search_buttontext": "Search that!"
+    "activity_search_buttontext": "Search that!",
+    "activity_searchresult_here_are_your_results": "Here are your search results for: "
 }
