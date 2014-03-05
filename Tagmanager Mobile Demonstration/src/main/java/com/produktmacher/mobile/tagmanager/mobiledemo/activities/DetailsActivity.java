@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.produktmacher.mobile.tagmanager.mobiledemo.R;
+import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.GTMConnector;
 import com.produktmacher.mobile.tagmanager.mobiledemo.models.MyItem;
 
 public class DetailsActivity extends GTMBaseActivity {
@@ -46,7 +47,7 @@ public class DetailsActivity extends GTMBaseActivity {
         mImageButtonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                GTMConnector.sendLikedClicked(v, mItem);
             }
         });
     }
