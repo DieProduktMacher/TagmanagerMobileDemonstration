@@ -26,12 +26,12 @@
             android:src="@drawable/ic_launcher" />
 
         <TextView
+            android:id="@+id/search_textview_searchquestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textAppearance="@android:style/TextAppearance.Large"
-            android:layout_gravity="center"
-            android:text="What are you searching for?" />
+            android:layout_gravity="center" />
     </LinearLayout>
 
 
@@ -55,8 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:textStyle="bold"
-        android:text="Search that!" />
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
