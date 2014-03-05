@@ -42,8 +42,14 @@ public class SearchResultActivity extends GTMBaseActivity {
 
         GTMConnector.getInstance(this).getValue(GTM_YOUR_RESULTS, new GTMValueCallback() {
             @Override
-            public void callback(String value) {
-                mTextViewYourResults.setText(value);
+            public void callback(final String value) {
+                //We are in a different thread, where we can't change the ui
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTextViewYourResults.setText(value);
+                    }
+                });
             }
         });
 

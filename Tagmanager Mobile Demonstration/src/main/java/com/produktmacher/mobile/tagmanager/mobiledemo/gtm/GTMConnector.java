@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.google.tagmanager.Container;
 import com.google.tagmanager.ContainerOpener;
+import com.google.tagmanager.DataLayer;
 import com.google.tagmanager.TagManager;
 import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMContainerCallback;
 import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMValueCallback;
@@ -28,23 +29,21 @@ public class GTMConnector {
 
     public static GTMConnector getInstance(Context context) {
         instance.mContext = context;
+        instance.mTagManager = TagManager.getInstance(context);
         return instance;
     }
 
 
-    public static void sendViewClicked(View view) {
-        GTMConnector.sendViewClicked(view.getTag().toString());
+    public void sendScreenOpened(String screenName) {
+        DataLayer dataLayer = mTagManager.getDataLayer();
+
+        // This call assumes the container has already been opened, otherwise events
+        // pushed to the DataLayer will not fire tags in that container.
+        dataLayer.push(DataLayer.mapOf("event", "openScreen",        // Event, Name of Open Screen Event.
+                "screenName", screenName));  // Name of screen name field, Screen name value.
     }
 
-    public static void sendViewClicked(String view) {
-
-    }
-
-    public static void sendViewOpened(String view) {
-
-    }
-
-    public static void sendLikedClicked(View v, MyItem mItem) {
+    public void sendLikedClicked(View v, MyItem mItem) {
         String tag = v.getTag().toString();
         String itemName = mItem.getName();
     }
@@ -68,19 +67,10 @@ public class GTMConnector {
         }
     }
 
-    private TagManager getTagManager() {
-        if (mTagManager == null) {
-            mTagManager = TagManager.getInstance(mContext);
-        }
-        return mTagManager;
-    }
-
     private void prepareContainer(final GTMContainerCallback callback) {
-        TagManager tagManager = getTagManager();
-
         // happens asynchronously
         ContainerOpener.openContainer(
-                tagManager,                                    // TagManager instance.
+                mTagManager,                                    // TagManager instance.
                 CONTAINER_ID,                                   // Tag Manager Container ID.
                 ContainerOpener.OpenType.PREFER_NON_DEFAULT,    // Prefer not to get the default container, but stale is OK.
                 null,                                           // Time to wait for saved container to load (ms). Default is 2000ms.

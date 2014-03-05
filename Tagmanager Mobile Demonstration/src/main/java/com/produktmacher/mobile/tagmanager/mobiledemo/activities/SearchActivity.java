@@ -35,15 +35,30 @@ public class SearchActivity extends GTMBaseActivity {
         // We also need a callback here, since fetching the value might happen asynchronously
         GTMConnector.getInstance(this).getValue(GTM_SEARCH_QUESTION, new GTMValueCallback() {
             @Override
-            public void callback(String value) {
-                mTextViewSearchQuestion.setText(value);
+            public void callback(final String value) {
+
+                //We are in a different thread, where we can't change the ui
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mTextViewSearchQuestion.setText(value);
+                    }
+                });
+
             }
         });
 
+        // We also need a callback here, since fetching the value might happen asynchronously
         GTMConnector.getInstance(this).getValue(GTM_SEARCH_BUTTON, new GTMValueCallback() {
             @Override
-            public void callback(String value) {
-                mButtonSearch.setText(value);
+            public void callback(final String value) {
+                //We are in a different thread, where we can't change the ui
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mButtonSearch.setText(value);
+                    }
+                });
             }
         });
 

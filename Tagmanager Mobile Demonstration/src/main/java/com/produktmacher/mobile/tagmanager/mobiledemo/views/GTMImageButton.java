@@ -27,7 +27,6 @@ public class GTMImageButton extends ImageButton {
             @Override
             public void onClick(View v) {
                 l.onClick(v);
-                GTMConnector.sendViewClicked(v);
             }
         };
 

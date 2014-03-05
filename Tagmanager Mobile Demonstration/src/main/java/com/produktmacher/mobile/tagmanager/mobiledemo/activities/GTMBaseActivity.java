@@ -19,11 +19,7 @@ public class GTMBaseActivity extends ActionBarActivity {
 
     protected void gtmSetTitle(String title) {
         setTitle(title);
-        GTMConnector.sendViewOpened(title);
-    }
-
-    protected void gtmViewOpened() {
-
+        GTMConnector.getInstance(this).sendScreenOpened(title);
     }
 
 }
