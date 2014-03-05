@@ -1,4 +1,4 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces;
+package com.produktmacher.tagmanagerdemo.gtm.interfaces;
 
 /**
  * Created by stefanlanger on 05.03.14.

@@ -1,23 +1,21 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.views;
+package com.produktmacher.tagmanagerdemo.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.GTMConnector;
 
 /**
  * Created by stefanlanger on 05.03.14.
  */
-public class GTMImageButton extends ImageButton {
+public class GTMButton extends Button {
 
-    public GTMImageButton(Context context) {
+    public GTMButton(Context context) {
         super(context);
     }
 
-    public GTMImageButton(Context context, AttributeSet attrs) {
+    public GTMButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

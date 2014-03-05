@@ -1,4 +1,4 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.models;
+package com.produktmacher.tagmanagerdemo.models;
 
 import java.io.Serializable;
 

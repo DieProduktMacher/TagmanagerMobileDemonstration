@@ -1,4 +1,4 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces;
+package com.produktmacher.tagmanagerdemo.gtm.interfaces;
 
 import com.google.tagmanager.Container;
 

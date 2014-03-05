@@ -1,4 +1,4 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.activities;
+package com.produktmacher.tagmanagerdemo.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.produktmacher.mobile.tagmanager.mobiledemo.R;
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.GTMConnector;
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMValueCallback;
+import com.produktmacher.tagmanagerdemo.R;
+import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
+import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 
 public class SearchActivity extends GTMBaseActivity {
 

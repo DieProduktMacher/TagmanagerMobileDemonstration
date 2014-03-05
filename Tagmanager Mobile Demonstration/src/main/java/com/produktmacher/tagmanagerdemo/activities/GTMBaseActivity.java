@@ -1,11 +1,10 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.activities;
+package com.produktmacher.tagmanagerdemo.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-import com.google.tagmanager.TagManager;
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.GTMConnector;
+import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
+
 
 /**
  * Created by stefanlanger on 05.03.14.

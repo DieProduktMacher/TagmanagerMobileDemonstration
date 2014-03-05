@@ -1,15 +1,14 @@
-package com.produktmacher.mobile.tagmanager.mobiledemo.gtm;
+package com.produktmacher.tagmanagerdemo.gtm;
 
 import android.content.Context;
-import android.view.View;
 
 import com.google.tagmanager.Container;
 import com.google.tagmanager.ContainerOpener;
 import com.google.tagmanager.DataLayer;
 import com.google.tagmanager.TagManager;
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMContainerCallback;
-import com.produktmacher.mobile.tagmanager.mobiledemo.gtm.interfaces.GTMValueCallback;
-import com.produktmacher.mobile.tagmanager.mobiledemo.models.MyItem;
+import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMContainerCallback;
+import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
+import com.produktmacher.tagmanagerdemo.models.MyItem;
 
 /**
  * Created by stefanlanger on 05.03.14.
