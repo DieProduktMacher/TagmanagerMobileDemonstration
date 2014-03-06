@@ -35,7 +35,6 @@ public class GTMBaseActivity extends ActionBarActivity {
         GTMConnector.getInstance(this).getValue("app_background_color", new GTMValueCallback() {
             @Override
             public void callback(final String value) {
-                Log.i("GTM", "COLOR: " + value);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
