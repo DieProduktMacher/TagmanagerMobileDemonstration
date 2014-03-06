@@ -10,6 +10,8 @@ import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 import com.produktmacher.tagmanagerdemo.models.MyItem;
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * This Activity shows the details to an item
  */
 public class DetailsActivity extends GTMBaseActivity {

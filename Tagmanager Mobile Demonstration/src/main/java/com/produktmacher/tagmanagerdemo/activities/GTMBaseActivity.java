@@ -10,6 +10,8 @@ import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * This class should be inherited by all tracked Activities
  * GTMBaseActivity helps sending the screenOpened event
  */

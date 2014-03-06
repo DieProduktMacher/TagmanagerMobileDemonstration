@@ -3,6 +3,8 @@ package com.produktmacher.tagmanagerdemo.models;
 import java.io.Serializable;
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * Dummy Item to work with
  */
 public class MyItem implements Serializable{

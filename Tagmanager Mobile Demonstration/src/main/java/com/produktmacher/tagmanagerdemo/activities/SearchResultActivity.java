@@ -12,6 +12,11 @@ import com.produktmacher.tagmanagerdemo.adapters.SearchResultAdapter;
 import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 
+/**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
+ * This Activity shows some dummy search results
+ */
 public class SearchResultActivity extends GTMBaseActivity {
 
     public static final String EXTRA_ITEM = "result_item";

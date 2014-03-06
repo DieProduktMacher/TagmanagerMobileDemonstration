@@ -11,6 +11,8 @@ import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 import com.produktmacher.tagmanagerdemo.models.MyItem;
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * This is a Singleton Class, with which you can send events and receive values from Google Tag Manager
  */
 public class GTMConnector {

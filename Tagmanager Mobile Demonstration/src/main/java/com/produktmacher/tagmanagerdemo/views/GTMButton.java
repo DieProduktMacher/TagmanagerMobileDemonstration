@@ -9,6 +9,8 @@ import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * This custom Button sends its' tag on every click to the GTM
  */
 public class GTMButton extends Button {

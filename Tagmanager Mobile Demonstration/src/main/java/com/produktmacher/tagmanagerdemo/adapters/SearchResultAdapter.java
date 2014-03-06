@@ -13,6 +13,8 @@ import com.produktmacher.tagmanagerdemo.models.MyItem;
 import java.util.ArrayList;
 
 /**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
  * This adapter displays the dummy search results
  */
 public class SearchResultAdapter extends BaseAdapter {

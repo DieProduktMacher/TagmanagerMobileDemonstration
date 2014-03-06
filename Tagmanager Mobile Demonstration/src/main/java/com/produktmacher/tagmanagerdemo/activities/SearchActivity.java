@@ -12,6 +12,11 @@ import com.produktmacher.tagmanagerdemo.R;
 import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
 import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 
+/**
+ * Created by DieProduktMacher GmbH on March 6th, 2014, www.produktmacher.com
+ *
+ * This Activity is the Start Activity of this app and shows a search field
+ */
 public class SearchActivity extends GTMBaseActivity {
 
     public static final String EXTRA_SEARCH_TERM    = "search_term";
