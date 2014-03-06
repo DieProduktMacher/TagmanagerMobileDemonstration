@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="ComAndroidSupportAppcompatV71901.aar" >
+        <source path="/Users/stefanlanger/projects/mobile/TagmanagerMobileDemonstration/Tagmanager Mobile Demonstration/build/exploded-bundles/ComAndroidSupportAppcompatV71901.aar/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/stefanlanger/projects/mobile/TagmanagerMobileDemonstration/Tagmanager Mobile Demonstration/src/main/assets" >
+            <file
+                name="tagmanager/GTM-PLWRDX.json"
+                path="/Users/stefanlanger/projects/mobile/TagmanagerMobileDemonstration/Tagmanager Mobile Demonstration/src/main/assets/tagmanager/GTM-PLWRDX.json" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/stefanlanger/projects/mobile/TagmanagerMobileDemonstration/Tagmanager Mobile Demonstration/src/debug/assets" />
+    </dataSet>
+
+</merger>
