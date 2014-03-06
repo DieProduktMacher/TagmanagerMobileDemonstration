@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.produktmacher.mobile.tagmanager.mobiledemo.activities.DetailsActivity" >
+    
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>
+<!-- From: file:/Users/stefanlanger/projects/mobile/TagmanagerMobileDemonstration/Tagmanager%20Mobile%20Demonstration/src/main/res/menu/details.xml -->
