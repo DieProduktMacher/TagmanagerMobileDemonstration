@@ -1,9 +1,12 @@
 package com.produktmacher.tagmanagerdemo.activities;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 
 import com.produktmacher.tagmanagerdemo.gtm.GTMConnector;
+import com.produktmacher.tagmanagerdemo.gtm.interfaces.GTMValueCallback;
 
 
 /**
@@ -26,4 +29,25 @@ public class GTMBaseActivity extends ActionBarActivity {
         GTMConnector.getInstance(this).sendScreenOpened(title);
     }
 
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        GTMConnector.getInstance(this).getValue("app_background_color", new GTMValueCallback() {
+            @Override
+            public void callback(final String value) {
+                Log.i("GTM", "COLOR: " + value);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if ( value != null && !value.equals("") ) {
+                            int color = Color.parseColor(value);
+                            if (color != 0) {
+                                GTMBaseActivity.this.findViewById(android.R.id.content).setBackgroundColor(color);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
 }
